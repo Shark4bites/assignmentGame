@@ -13,8 +13,8 @@ void GameObject::updateMovement()
 {
 	pos.x = pos.x + velocity.x;
 	pos.y = pos.y + velocity.y;
-	velocity.x = 0;
-	velocity.y = 0;
+	if (velocity.x != 0){ velocity.x = 0; }
+	if (velocity.y != 0){ velocity.y = 0; }
 }
 
 void GameObject::draw()

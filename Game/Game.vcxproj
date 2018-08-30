@@ -70,6 +70,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="GameBlock.cpp" />
+    <ClCompile Include="GameBlocks.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GamePanel.cpp" />
     <ClCompile Include="InputHandler.cpp" />
@@ -79,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameBlock.h" />
+    <ClInclude Include="GameBlocks.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GamePanel.h" />
     <ClInclude Include="InputHandler.h" />

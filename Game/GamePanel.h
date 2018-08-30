@@ -6,7 +6,7 @@ class GamePanel :
 private:
 	int w, h;
 public:
-	void setWidthAndHeight(int=19, int=19);
+	void setWidthAndHeight(int=18, int=18);
 	virtual void draw();
 };
 
