@@ -15,11 +15,7 @@ public:
 	void setWidthAndHeight(int w, int h);
 	virtual void update(float dt);
 	virtual void draw();
-	int borderL = 40;
-	int borderR = 260;
-	int borderU = -20; //60;
-	int borderD = 400;
-	int type;
+	int type = rand() % 7;
 	bool blockStopped = false;
 };
 

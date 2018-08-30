@@ -10,10 +10,6 @@ protected:
 public:
 	Vector pos;
 	Vector velocity;
-	int borderL = 0;
-	int borderR = 640;
-	int borderU = 0;
-	int borderD = 480;
 	std::string objType;
 	void setRenderer(SDL_Renderer* renderer);
 	virtual void update(float dt);

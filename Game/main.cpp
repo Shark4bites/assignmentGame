@@ -125,7 +125,7 @@ int main(int argc, char **argv)
 	int currentFrame = 0;
 	float frameTimer = 0.1; //Supposedly 0.083
 	int delay1 = 5;
-	int delay2 = 10;
+	int delay2 = 60;
 	int delayC = 0;
 	bool loop = true;
 	while (loop)
@@ -135,23 +135,20 @@ int main(int argc, char **argv)
 		lastUpdate = SDL_GetTicks();
 		SDL_SetRenderDrawColor(renderer, 120, 120, 120, 255);
 		SDL_RenderClear(renderer);
-		if (delayC%delay1 == 0)
+		SDL_Event event;
+		while (SDL_PollEvent(&event))
 		{
-			if (delayC%delay2 == 0){ currentBlock->velocity.y = 20; }
-			SDL_Event event;
-			while (SDL_PollEvent(&event))
-			{
-				if (event.type == SDL_QUIT)
+			if (event.type == SDL_QUIT)
+				loop = false;
+			if (event.type == SDL_KEYDOWN)
+				if (event.key.keysym.scancode == SDL_SCANCODE_ESCAPE)
 					loop = false;
-				if (event.type == SDL_KEYDOWN)
-					if (event.key.keysym.scancode == SDL_SCANCODE_ESCAPE)
-						loop = false;
-					else
-						;
 				else
-					keyboardHandler.update(&event);
-			}
+					;
+			keyboardHandler.update(&event);
 		}
+		if (delayC%delay2 == 0)
+			currentBlock->velocity.y = 20;
 		for each (GamePanel* p in panels)
 			p->draw();
 

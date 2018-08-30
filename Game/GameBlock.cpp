@@ -8,7 +8,8 @@ void GameBlock::setWidthAndHeight(int w, int h)
 
 void GameBlock::update(float dt)
 {
-	if (this->pos.y - this->h < borderD)
+	//int posX = (this->pos.x - 60) % 20;
+	if (this->pos.y - this->h < 400)
 		updateMovement();
 	else
 		blockStopped = true;
