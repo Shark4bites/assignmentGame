@@ -6,6 +6,7 @@ class GameBlock :
 {
 private:
 	int w, h;
+	int type = 0;
 	
 public:
 	GameBlock()
@@ -15,7 +16,7 @@ public:
 	void setWidthAndHeight(int w, int h);
 	virtual void update(float dt);
 	virtual void draw();
-	int type = rand() % 7;
 	bool blockStopped = false;
+	void setType(int);
 };
 

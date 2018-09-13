@@ -3,8 +3,10 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
+#include <SDL_mixer.h>
 #include <list>
 #include <stdlib.h>
+#include <time.h>
 #include "GameObject.h"
 #include "GamePanel.h"
 #include "GameBlock.h"
@@ -15,27 +17,133 @@ using namespace std;
 
 KeyboardHandler keyboardHandler;
 
-GameBlock* currentBlock;
+GameBlocks currentBlocks;
 
-void createBlock(list<GameObject*> &gameObjects, SDL_Renderer* renderer){
+void createBlock(list<GameObject*> &gameObjects, SDL_Renderer* renderer)
+{
 	//CREATE PLAYABLE BLOCK
-	GameBlock* block = new GameBlock();
-	block->setRenderer(renderer);
-	block->setWidthAndHeight(20, 20);
-	block->pos.x = 160;
-	block->pos.y = 40;
-	gameObjects.push_back(block);
+	int typeM = rand() % 7;
+	bool blockCreate = false;
+	for (int i = 0; i < 4; i++)
+	{
+		GameBlock* block = new GameBlock();
+		block->setType(typeM);
+		block->setRenderer(renderer);
+		block->setWidthAndHeight(20, 20);
+		if (typeM == 0)
+		{
+			block->pos.x = 120 + (i * 20);
+			block->pos.y = 40;
+		}
+		if (typeM == 1)
+		{
+			if (i == 0)
+			{
+				block->pos.x = 140;
+				block->pos.y = 40;
+			}
+			if (i > 0)
+			{
+				block->pos.x = 120 + (i * 20);
+				block->pos.y = 60;
+			}
+		}
+		if (typeM == 2)
+		{
+			if (i == 0)
+			{
+				block->pos.x = 180;
+				block->pos.y = 40;
+			}
+			if (i > 0)
+			{
+				block->pos.x = 120 + (i * 20);
+				block->pos.y = 60;
+			}
+		}
+		if (typeM == 3)
+		{
+			if (i < 2)
+			{
+				block->pos.x = 160 + (i * 20);
+				block->pos.y = 40;
+			}
+			if (i >= 2)
+			{
+				block->pos.x = 120 + (i * 20);
+				block->pos.y = 60;
+			}
+		}
+		if (typeM == 4)
+		{
+			if (i < 2)
+			{
+				block->pos.x = 140 + (i * 20);
+				block->pos.y = 60;
+			}
+			if (i >= 2)
+			{
+				block->pos.x = 120 + (i * 20);
+				block->pos.y = 40;
+			}
+		}
+		if (typeM == 5)
+		{
+			if (i < 2)
+			{
+				block->pos.x = 140 + (i * 20);
+				block->pos.y = 40;
+			}
+			if (i >= 2)
+			{
+				block->pos.x = 120 + (i * 20);
+				block->pos.y = 60;
+			}
+		}
 
-	keyboardHandler.block = block;
-	currentBlock = block;
-	if (block != NULL)
-		cout << "Controllable block created!" << endl;
+		if (typeM == 6)
+		{
+			if (i == 0)
+			{
+				block->pos.x = 160;
+				block->pos.y = 40;
+			}
+			if (i > 0)
+			{
+				block->pos.x = 120 + (i * 20);
+				block->pos.y = 60;
+			}
+		}
+		gameObjects.push_back(block);
+		keyboardHandler.blocks = &currentBlocks;
+		currentBlocks.blocks.push_back(block);
+		if (block != NULL)
+			blockCreate = true;
+	}
+	char typeC = 'I';
+	if (typeM == 1)
+		typeC = 'J';
+	if (typeM == 2)
+		typeC = 'L';
+	if (typeM == 3)
+		typeC = '0';
+	if (typeM == 4)
+		typeC = 'S';
+	if (typeM == 5)
+		typeC = 'Z';
+	if (typeM == 6)
+		typeC = 'T';
+	if (blockCreate)
+		cout << "Construction block " << typeC << " is created!" << endl;
 	else
-		cout << "Controllable block failed!" << endl;
+		cout << "Construction block failed!" << endl;
 }
 
 int main(int argc, char **argv)
 {
+
+	//sets seed value to use in rand function to change which random number set numbers come up
+	srand(time(NULL));
 	/*
 	INITIALISE
 		Do not forget to set Game's properties, Configuration Properties, 
@@ -62,7 +170,19 @@ int main(int argc, char **argv)
 		return -1;
 	}
 	else
-		cout << "SDL image loaded!" << endl;
+		cout << "SDL image initialised!" << endl;
+	/*
+	//Initialise SDL mixer
+	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096) == -1)
+	{
+		cout << "SDL mixer failed!" << endl;
+		SDL_Quit();
+		system("pause");
+		return -1;
+	}
+	else
+		cout << "SDL mixer intialised!" << endl;
+	*/
 	//Create Window
 	SDL_Window* window = SDL_CreateWindow("Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 480, SDL_WINDOW_SHOWN);
 	if (window != NULL)
@@ -148,7 +268,17 @@ int main(int argc, char **argv)
 			keyboardHandler.update(&event);
 		}
 		if (delayC%delay2 == 0)
-			currentBlock->velocity.y = 20;
+		{
+			currentBlocks.moveDown();
+			/*
+			For each (GameObject* b1 in currentBlocks)
+				For each (GameObject* b2 in entities??)
+					if(b1->pos.y+20 == b2->pos.y && b1->pos.x == b2->pos.x)
+						stop?? = true;
+			currentBlocks.stopAllCurrentBlocks??
+			makenewBlock = true;
+			*/
+		}
 		for each (GamePanel* p in panels)
 			p->draw();
 
@@ -166,7 +296,11 @@ int main(int argc, char **argv)
 			}
 		}
 		if (makeNewBlock)
+		{
+			currentBlocks.blocks.clear();
 			createBlock(gameObjects, renderer);//Create new block
+		}
+
 		SDL_RenderPresent(renderer);
 		delayC++;
 	}

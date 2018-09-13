@@ -1,11 +1,11 @@
 #pragma once
 #include <SDL.h>
-#include "GameBlock.h"
+#include "GameBlocks.h"
 class InputHandler :
 	public GameBlock
 {
 public:
-	GameBlock* block;
+	GameBlocks* blocks;
 	virtual void update(SDL_Event* event) = 0;
 };
 
