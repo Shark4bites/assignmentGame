@@ -300,11 +300,13 @@ int main(int argc, char **argv)
 		if (makeNewBlock)
 		{
 			//Fill in occupies
+			/*
 			for (GameBlock* b : currentBlocks.blocks)
 				for (int i = 0; i < 20; i++)
 					for (int ii = 0; ii < 10; ii++)
 						if (b->pos.x == panels[i][ii]->pos.x - 1 && b->pos.y == panels[i][ii]->pos.y - 1)
 							panels[i][ii]->setOccupy(true);
+			*/
 			/*
 			//To check whether the line is filled in to be deleted or not
 			cout << "Bottom Panel check : ";
@@ -315,6 +317,10 @@ int main(int argc, char **argv)
 			for (int i = 0; i < 20; i++)
 			{
 				bool deleteLine = true;
+				for (GameBlock* b : currentBlocks.blocks)
+					for (int ii = 0; ii < 10; ii++)
+						if (b->pos.x == panels[i][ii]->pos.x - 1 && b->pos.y == panels[i][ii]->pos.y - 1)
+							panels[i][ii]->setOccupy(true);
 				for (int ii = 0; ii < 10; ii++)
 					if (panels[i][ii]->getOccupy() == false)
 						deleteLine = false;
