@@ -12,3 +12,13 @@ void GamePanel::draw()
 	SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 	SDL_RenderFillRect(renderer, &Rect);
 }
+
+void GamePanel::setOccupy(bool b)
+{
+	this->occupied = b;
+}
+
+bool GamePanel::getOccupy()
+{
+	return occupied;
+}

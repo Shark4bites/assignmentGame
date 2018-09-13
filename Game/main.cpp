@@ -219,9 +219,6 @@ int main(int argc, char **argv)
 	Each square is 20x20px
 	*/
 	GamePanel *panels[20][10];
-	for (int i = 0; i < 20; i++)
-		for (int ii = 0; ii < 10; ii++)
-			panels[i][ii] = false;
 	int createPanels = 0;
 	for (int i = 0; i < 20; i++)
 	{
@@ -232,6 +229,7 @@ int main(int argc, char **argv)
 			panel->setWidthAndHeight();
 			panel->pos.x = (ii * 20) + 60 + 1;
 			panel->pos.y = 420 - (i * 20) + 1;
+			panel->setOccupy(false);
 			if (panel != NULL)
 				createPanels++;
 			panels[i][ii] = panel;
@@ -263,25 +261,29 @@ int main(int argc, char **argv)
 			if (event.type == SDL_KEYDOWN)
 				if (event.key.keysym.scancode == SDL_SCANCODE_ESCAPE)
 					loop = false;
-				else
-					;
 			keyboardHandler.update(&event);
 		}
 		if (delayC%delay2 == 0)
 		{
 			currentBlocks.moveDown();
+			for each (GameBlock* b1 in currentBlocks.blocks)
+				for each (GameBlock* b2 in gameObjects)
+					if(b1->pos.y+20 == b2->pos.y && b1->pos.x == b2->pos.x && b2->blockStopped)
+						b1->blockStopped = true;
 			/*
-			For each (GameObject* b1 in currentBlocks)
-				For each (GameObject* b2 in entities??)
-					if(b1->pos.y+20 == b2->pos.y && b1->pos.x == b2->pos.x)
-						stop?? = true;
 			currentBlocks.stopAllCurrentBlocks??
 			makenewBlock = true;
 			*/
+			/*for (GameObject* go : gameObjects){
+				if (go->objType == "block"){
+					GameBlock* b = (GameBlock*)go;
+
+					b->pos.x = 2323423424;
+				}
+			}*/
 		}
 		for each (GamePanel* p in panels)
 			p->draw();
-
 		bool makeNewBlock = true;
 		for each (GameObject* go in gameObjects)
 		{
@@ -297,10 +299,52 @@ int main(int argc, char **argv)
 		}
 		if (makeNewBlock)
 		{
+			//Fill in occupies
+			for (GameBlock* b : currentBlocks.blocks)
+				for (int i = 0; i < 20; i++)
+					for (int ii = 0; ii < 10; ii++)
+						if (b->pos.x == panels[i][ii]->pos.x - 1 && b->pos.y == panels[i][ii]->pos.y - 1)
+							panels[i][ii]->setOccupy(true);
+			/*
+			//To check whether the line is filled in to be deleted or not
+			cout << "Bottom Panel check : ";
+			for (int i = 0; i < 10; i++)
+				cout << panels[0][i]->getOccupy() << " ";
+			cout << endl;
+			*/
+			for (int i = 0; i < 20; i++)
+			{
+				bool deleteLine = true;
+				for (int ii = 0; ii < 10; ii++)
+					if (panels[i][ii]->getOccupy() == false)
+						deleteLine = false;
+				if (deleteLine)
+				{
+					for (list<GameObject*>::iterator goIt = gameObjects.begin(); goIt != gameObjects.end();)//when deleting, do put goIt++ here
+					{
+						if ((*goIt)->pos.y == panels[i][0]->pos.y -1)
+						{
+							delete (*goIt); //delete dynamically allocated block
+							goIt = gameObjects.erase(goIt); //remove block pointer from list
+						}
+						else
+							goIt++;
+					}
+
+					//Drop commmand;
+					//TODO move all blocks in gameObjects down by1
+					/*
+					for each (GameBlock* b in gameObjects)
+						b.moveDown();
+					*/
+
+					for (int ii = 0; ii < 10; ii++)
+						panels[i][ii]->setOccupy(false);
+				}
+			}
 			currentBlocks.blocks.clear();
 			createBlock(gameObjects, renderer);//Create new block
 		}
-
 		SDL_RenderPresent(renderer);
 		delayC++;
 	}
