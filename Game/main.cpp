@@ -12,6 +12,7 @@
 #include "GameBlock.h"
 #include "GameBlocks.h"
 #include "KeyboardHandler.h"
+#include "SoundManager.h"
 
 using namespace std;
 
@@ -171,7 +172,7 @@ int main(int argc, char **argv)
 	}
 	else
 		cout << "SDL image initialised!" << endl;
-	/*
+	
 	//Initialise SDL mixer
 	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096) == -1)
 	{
@@ -182,7 +183,7 @@ int main(int argc, char **argv)
 	}
 	else
 		cout << "SDL mixer intialised!" << endl;
-	*/
+	
 	//Create Window
 	SDL_Window* window = SDL_CreateWindow("Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 480, SDL_WINDOW_SHOWN);
 	if (window != NULL)
@@ -237,6 +238,20 @@ int main(int argc, char **argv)
 		}
 	}
 	cout <<createPanels << " out of 200 panel(s) created!" << endl;
+	//MUSIC
+	Mix_Music* music = Mix_LoadMUS("korobeiniki.ogg");
+	if (music == NULL)
+	{
+		cout << "Music failed to load! " << Mix_GetError() << endl;
+		SDL_Quit();
+		system("pause");
+		return -1;
+	}
+	else
+		cout << "Music loaded!" << endl;
+	Mix_PlayMusic(music, -1);
+	SoundManager::soundManager.loadSound("move1", "Assets/move1.wav");
+	SoundManager::soundManager.loadSound("move2", "Assets/move2.wav");
 	//MAIN GAME LOOP
 	createBlock(gameObjects, renderer);
 	Uint32 lastUpdate = SDL_GetTicks();
@@ -265,23 +280,22 @@ int main(int argc, char **argv)
 		}
 		if (delayC%delay2 == 0)
 		{
+			SoundManager::soundManager.playSound("move2");
 			currentBlocks.moveDown();
-			for each (GameBlock* b1 in currentBlocks.blocks)
-				for each (GameBlock* b2 in gameObjects)
-					if(b1->pos.y+20 == b2->pos.y && b1->pos.x == b2->pos.x && b2->blockStopped)
-						b1->blockStopped = true;
-			/*
-			currentBlocks.stopAllCurrentBlocks??
-			makenewBlock = true;
-			*/
-			/*for (GameObject* go : gameObjects){
-				if (go->objType == "block"){
-					GameBlock* b = (GameBlock*)go;
-
-					b->pos.x = 2323423424;
-				}
-			}*/
 		}
+
+		bool stopAllCurrentBlocks = false;
+		for each (GameBlock* b1 in currentBlocks.blocks)
+			for each (GameBlock* b2 in gameObjects)
+				if (b1->pos.y + 20 == b2->pos.y && b1->pos.x == b2->pos.x && b2->blockStopped)
+				{
+					stopAllCurrentBlocks = true;
+					break;
+				}
+		if (stopAllCurrentBlocks)
+			for each (GameBlock* b1 in gameObjects)
+				b1->blockStopped = true;
+
 		for each (GamePanel* p in panels)
 			p->draw();
 		bool makeNewBlock = true;
@@ -295,25 +309,17 @@ int main(int argc, char **argv)
 				GameBlock* blockref = (GameBlock*)go;
 				if (!blockref->blockStopped)
 					makeNewBlock = false;
+				else if (blockref->pos.y == 40)
+				{
+					makeNewBlock = false;
+					loop = false;
+					//GAME OVER
+				}
 			}
 		}
+		
 		if (makeNewBlock)
 		{
-			//Fill in occupies
-			/*
-			for (GameBlock* b : currentBlocks.blocks)
-				for (int i = 0; i < 20; i++)
-					for (int ii = 0; ii < 10; ii++)
-						if (b->pos.x == panels[i][ii]->pos.x - 1 && b->pos.y == panels[i][ii]->pos.y - 1)
-							panels[i][ii]->setOccupy(true);
-			*/
-			/*
-			//To check whether the line is filled in to be deleted or not
-			cout << "Bottom Panel check : ";
-			for (int i = 0; i < 10; i++)
-				cout << panels[0][i]->getOccupy() << " ";
-			cout << endl;
-			*/
 			for (int i = 0; i < 20; i++)
 			{
 				bool deleteLine = true;
@@ -336,13 +342,14 @@ int main(int argc, char **argv)
 						else
 							goIt++;
 					}
-
-					//Drop commmand;
-					//TODO move all blocks in gameObjects down by1
-					/*
-					for each (GameBlock* b in gameObjects)
-						b.moveDown();
-					*/
+					
+					for (list<GameObject*>::iterator goIt = gameObjects.begin(); goIt != gameObjects.end(); goIt++)//when deleting, do put goIt++ here
+						if ((*goIt)->objType == "block" && (*goIt)->pos.y < panels[i][0]->pos.y - 1)
+						{
+							GameBlock* blockref = (GameBlock*)(*goIt);
+							blockref->velocity.y = 20;
+							blockref->blockStopped = false;
+						}
 
 					for (int ii = 0; ii < 10; ii++)
 						panels[i][ii]->setOccupy(false);

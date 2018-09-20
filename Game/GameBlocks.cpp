@@ -14,7 +14,8 @@ void GameBlocks::moveRight()
 void GameBlocks::moveDown()
 {
 	for (GameBlock* block : blocks)
-		block->velocity.y = 20;
+		if (!block->blockStopped)
+			block->velocity.y = 20;
 }
 
 float GameBlocks::mostLeftBlock()
