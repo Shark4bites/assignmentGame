@@ -1,38 +1,77 @@
-﻿Build started 9/20/2018 4:47:59 PM.
-     1>Project "J:\AIT (Elvin Firdaus Husin 6893)\D18\Game (Matthew)\Assignment\Game\Game.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt KeyboardHandler.cpp main.cpp
-         main.cpp
-     1>j:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\main.cpp(36): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>j:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\main.cpp(48): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>j:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\main.cpp(61): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>j:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\main.cpp(69): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>j:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\main.cpp(74): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>j:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\main.cpp(82): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>j:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\main.cpp(87): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>j:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\main.cpp(95): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>j:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\main.cpp(100): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>j:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\main.cpp(114): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>j:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\main.cpp(147): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-     1>j:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\main.cpp(231): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>j:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\main.cpp(232): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>j:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\main.cpp(259): warning C4305: 'initializing' : truncation from 'double' to 'float'
-     1>j:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\main.cpp(267): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
-         KeyboardHandler.cpp
-         Generating Code...
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"J:\AIT (Elvin Firdaus Husin 6893)\D18\Game (Matthew)\Assignment\Debug\Game.exe" /INCREMENTAL /NOLOGO SDL2.lib SDL2main.lib SDL2_image.lib SDL2_ttf.lib SDL2_mixer.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"J:\AIT (Elvin Firdaus Husin 6893)\D18\Game (Matthew)\Assignment\Debug\Game.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"J:\AIT (Elvin Firdaus Husin 6893)\D18\Game (Matthew)\Assignment\Debug\Game.lib" /MACHINE:X86 Debug\GameBlock.obj
-         Debug\GameBlocks.obj
-         Debug\GameObject.obj
-         Debug\GamePanel.obj
-         Debug\InputHandler.obj
-         Debug\KeyboardHandler.obj
-         Debug\main.obj
-         Debug\SoundManager.obj
-         Debug\Vector.obj
-         Game.vcxproj -> J:\AIT (Elvin Firdaus Husin 6893)\D18\Game (Matthew)\Assignment\Debug\Game.exe
-     1>Done Building Project "J:\AIT (Elvin Firdaus Husin 6893)\D18\Game (Matthew)\Assignment\Game\Game.vcxproj" (Build target(s)).
-
-Build succeeded.
-
-Time Elapsed 00:00:01.99
+﻿  GameBlock.cpp
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(42): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(42): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(57): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(58): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(63): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(70): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(71): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(82): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(83): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(92): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(94): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(101): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(104): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(105): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(115): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(116): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(119): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(130): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(131): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(134): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(142): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(144): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(151): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(153): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(161): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(164): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(165): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(174): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(177): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(178): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(188): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(191): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(192): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(201): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(204): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(205): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(216): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(219): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(220): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(230): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(231): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(234): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(246): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(247): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(250): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(258): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(261): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(262): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(270): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(273): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(274): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(284): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(285): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gameblock.cpp(288): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  GameBlocks.cpp
+  GameObject.cpp
+  GamePanel.cpp
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gamepanel.cpp(11): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\gamepanel.cpp(11): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  InputHandler.cpp
+  KeyboardHandler.cpp
+  main.cpp
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\main.cpp(89): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\main.cpp(180): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\main.cpp(181): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\main.cpp(246): warning C4305: 'initializing': truncation from 'double' to 'float'
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\main.cpp(303): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\main.cpp(408): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+d:\ait (elvin firdaus husin 6893)\d18\game (matthew)\assignment\game\main.cpp(409): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  SoundManager.cpp
+  Vector.cpp
+  Generating Code...
+MSVCRTD.lib(initializers.obj) : warning LNK4098: defaultlib 'msvcrt.lib' conflicts with use of other libs; use /NODEFAULTLIB:library
+SDL2main.lib(SDL_windows_main.obj) : error LNK2019: unresolved external symbol __imp__fprintf referenced in function _ShowError
+SDL2main.lib(SDL_windows_main.obj) : error LNK2019: unresolved external symbol __imp____iob_func referenced in function _ShowError
+D:\AIT (Elvin Firdaus Husin 6893)\D18\Game (Matthew)\Assignment\Debug\Game.exe : fatal error LNK1120: 2 unresolved externals

@@ -7,8 +7,8 @@ void KeyboardHandler::update(SDL_Event* event)
 		blocks->moveDown();
 		SoundManager::soundManager.playSound("move1");
 	}
-	if (keystates[SDL_SCANCODE_LEFT] && blocks->mostLeftBlock() - 20 > 40)
+	if (keystates[SDL_SCANCODE_LEFT] && blocks->mostLeftBlock() - 20 > 0)
 		blocks->moveLeft();
-	if (keystates[SDL_SCANCODE_RIGHT] && blocks->mostRightBlock() + 20 < 260)
+	if (keystates[SDL_SCANCODE_RIGHT] && blocks->mostRightBlock() + 20 < 220)
 		blocks->moveRight();
 }

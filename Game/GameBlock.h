@@ -7,6 +7,7 @@ class GameBlock :
 private:
 	int w, h;
 	int type = 0;
+	int diff = 1;
 	
 public:
 	GameBlock()
@@ -18,5 +19,6 @@ public:
 	virtual void draw();
 	bool blockStopped = false;
 	void setType(int);
+	void setForm(int, int);
 };
 

@@ -9,16 +9,13 @@ class GameBlocks
 {
 public:
 	std::list<GameBlock*> blocks;
-	//virtual void update();
-	//virtual void draw();
 	void moveLeft();
 	void moveRight();
 	void moveDown(); 
 	float mostLeftBlock();
 	float mostRightBlock();
 
-	//override update function to update alllllll blocks in group at once to move
-
-	//override draw function to loop through and draw all blocks in group
+	void rotateRight();
+	void rotateLeft();
 };
 
